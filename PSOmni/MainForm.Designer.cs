@@ -1,6 +1,6 @@
 ﻿namespace PSOmni
 {
-    partial class mainForm
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -38,7 +38,7 @@
             Name = "mainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PS Omni Save Sync";
-            Load += Form1_Load;
+            this.Load += MainForm_Load;
             ResumeLayout(false);
         }
 
