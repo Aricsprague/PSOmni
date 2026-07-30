@@ -1,6 +1,7 @@
 using PSOmni.Configuration;
 using PSOmni.Domain;
 using PSOmni.Infrastructure;
+using PSOmni.Services;
 
 namespace PSOmni
 {
@@ -19,10 +20,25 @@ namespace PSOmni
 
             AdbService adb = new(runner, settings);
 
-            bool connected = await adb.IsDeviceConnectedAsync();
+            StartupService startup = new(adb);
 
-            MessageBox.Show(
-                connected ? "Tablet Connected" : "Tablet Not Connected");
+            while (!await startup.InitializeAsync())
+            {
+                DialogResult result = MessageBox.Show(
+                    "Automatic connection failed.\n\n" +
+                    "Verify Wireless Debugging is enabled and your tablet is connected to Wi-Fi.",
+                    "PS Omni",
+                    MessageBoxButtons.RetryCancel,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Cancel)
+                {
+                    Close();
+                    return;
+                }
+            }
+
+            MessageBox.Show("Tablet Connected");
         }
     }
 }

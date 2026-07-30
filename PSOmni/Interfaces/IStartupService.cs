@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PSOmni.Interfaces
+namespace PSOmni.Interfaces;
+
+public interface IStartupService
 {
-    internal class IStartupService
-    {
-    }
+    Task<bool> InitializeAsync();
 }

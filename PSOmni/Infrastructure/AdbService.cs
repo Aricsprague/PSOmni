@@ -38,6 +38,21 @@ public class AdbService : IAdbService
             line.EndsWith("\tdevice"));
     }
 
+    public async Task<bool> ConnectAsync(
+    string host,
+    int port)
+    {
+        CommandResult result =
+            await _commandRunner.RunAsync(
+                _settings.AdbPath,
+                $"connect {host}:{port}");
+
+        if (!result.Success)
+            return false;
+
+        return await IsDeviceConnectedAsync();
+    }
+
     public Task<string> GetDeviceNameAsync()
     {
         throw new NotImplementedException();

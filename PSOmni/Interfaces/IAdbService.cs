@@ -8,6 +8,8 @@ public interface IAdbService
 {
     Task<bool> IsDeviceConnectedAsync();
 
+    Task<bool> ConnectAsync(string host, int port);
+
     Task<string> GetDeviceNameAsync();
 
     Task PullFileAsync(string remotePath, string localPath);

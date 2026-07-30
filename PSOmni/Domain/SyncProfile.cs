@@ -8,9 +8,11 @@ public class SyncProfile
 {
     public string Name { get; set; } = "";
 
-    public string LocalFolder { get; set; } = "";
+    public string Host { get; set; } = "";
+    public int Port { get; set; }
 
+    public string LocalFolder { get; set; } = "";
     public string RemoteFolder { get; set; } = "";
 
-    public List<MemoryCard> MemoryCards { get; } = new();
+    public List<MemoryCard> MemoryCards { get; set; } = new();
 }
