@@ -7,7 +7,7 @@ namespace PSOmni.Configuration;
 
 public class AppSettings
 {
-    public string AdbPath { get; set; } = "adb";
+    public string AdbPath { get; set; } = @"C:\Emulation\Sync\platform-tools\adb.exe";
 
     public List<SyncProfile> Profiles { get; set; } = new();
 

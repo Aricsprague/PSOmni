@@ -1,3 +1,4 @@
+using PSOmni.Configuration;
 using PSOmni.Domain;
 using PSOmni.Infrastructure;
 
@@ -12,14 +13,16 @@ namespace PSOmni
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
+            AppSettings settings = new();
+
             CommandRunner runner = new();
 
-            CommandResult result =
-                await runner.RunAsync(
-                    "cmd",
-                    "/c echo Hello, PS Omni!");
+            AdbService adb = new(runner, settings);
 
-            MessageBox.Show(result.StandardOutput);
+            bool connected = await adb.IsDeviceConnectedAsync();
+
+            MessageBox.Show(
+                connected ? "Tablet Connected" : "Tablet Not Connected");
         }
     }
 }

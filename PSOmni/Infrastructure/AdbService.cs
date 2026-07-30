@@ -1,15 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using PSOmni.Configuration;
+using PSOmni.Domain;
 using PSOmni.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace PSOmni.Infrastructure;
 
 public class AdbService : IAdbService
 {
-    public Task<bool> IsDeviceConnectedAsync()
+    private readonly ICommandRunner _commandRunner;
+    private readonly AppSettings _settings;
+
+    public AdbService(
+    ICommandRunner commandRunner,
+    AppSettings settings)
     {
-        throw new NotImplementedException();
+        _commandRunner = commandRunner;
+        _settings = settings;
+    }
+
+    public async Task<bool> IsDeviceConnectedAsync()
+    {
+        CommandResult result = await _commandRunner.RunAsync(
+            _settings.AdbPath,
+            "devices");
+
+        if (!result.Success)
+            return false;
+
+        string[] lines = result.StandardOutput.Split(
+            Environment.NewLine,
+            StringSplitOptions.RemoveEmptyEntries);
+
+        return lines.Any(line =>
+            line.EndsWith("\tdevice"));
     }
 
     public Task<string> GetDeviceNameAsync()
