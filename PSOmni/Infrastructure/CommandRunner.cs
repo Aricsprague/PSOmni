@@ -7,8 +7,13 @@ using PSOmni.Interfaces;
 
 namespace PSOmni.Infrastructure;
 
+/// <summary>Executes external processes and captures their output.</summary>
 public class CommandRunner : ICommandRunner
 {
+    /// <summary>Runs a process asynchronously and returns the result including exit code and captured output.</summary>
+    /// <param name="fileName">Path to the executable to run.</param>
+    /// <param name="arguments">Arguments passed to the executable.</param>
+    /// <param name="cancellationToken">Token used to cancel the operation.</param>
     public async Task<CommandResult> RunAsync(
         string fileName,
         string arguments,

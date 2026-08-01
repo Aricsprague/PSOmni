@@ -5,15 +5,18 @@ using PSOmni.Interfaces;
 
 namespace PSOmni.Services;
 
+/// <summary>Performs application startup checks and attempts to establish a device connection when needed.</summary>
 public class StartupService : IStartupService
 {
     private readonly IAdbService _adbService;
 
+    /// <summary>Creates a new <see cref="StartupService"/>.</summary>
+    /// <param name="adbService">Service used to communicate with the device.</param>
     public StartupService(IAdbService adbService)
     {
         _adbService = adbService;
     }
-
+    /// <summary>Initializes components required at application startup and ensures a device connection is available. Returns true when initialization succeeds and a device is connected.</summary>
     public async Task<bool> InitializeAsync()
     {
         if (await _adbService.IsDeviceConnectedAsync())
@@ -21,7 +24,7 @@ public class StartupService : IStartupService
 
         bool connected = await _adbService.ConnectAsync(
             "192.168.40.227",
-            42123);
+            5555);
 
         if (connected)
             return true;
