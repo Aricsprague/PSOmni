@@ -24,4 +24,7 @@ public interface IAdbService
 
     // Forces the specified package to stop on the connected device.
     Task ForceStopAsync(string packageName);
+
+    //Lists files in a remote directory on the connected device. Returns a list of file names.
+    Task<List<string>> ListFilesAsync(string remoteDirectory);
 }

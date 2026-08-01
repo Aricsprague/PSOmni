@@ -105,4 +105,23 @@ public class AdbService : IAdbService
     {
         throw new NotImplementedException();
     }
+
+    public async Task<List<string>> ListFilesAsync(string remoteDirectory)
+    {
+        CommandResult result =
+            await _commandRunner.RunAsync(
+                _settings.AdbPath,
+                $"shell ls -1 \"{remoteDirectory}\"");
+
+        if (!result.Success)
+            throw new Exception(result.StandardError);
+
+        return result.StandardOutput
+            .Split(
+                new[] { '\r', '\n' },
+                StringSplitOptions.RemoveEmptyEntries)
+            .ToList();
+    }
+
+
 }

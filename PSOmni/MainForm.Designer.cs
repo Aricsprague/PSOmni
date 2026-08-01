@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             statusStrip1 = new StatusStrip();
             statusStripLabel = new ToolStripStatusLabel();
             statusProgressBar = new ToolStripProgressBar();
@@ -92,10 +93,10 @@
             // activeProfileLabel
             // 
             activeProfileLabel.AutoSize = true;
-            activeProfileLabel.Font = new Font("Segoe UI", 13F);
+            activeProfileLabel.Font = new Font("Segoe UI", 14F);
             activeProfileLabel.Location = new Point(33, 23);
             activeProfileLabel.Name = "activeProfileLabel";
-            activeProfileLabel.Size = new Size(54, 25);
+            activeProfileLabel.Size = new Size(55, 25);
             activeProfileLabel.TabIndex = 6;
             activeProfileLabel.Text = "temp";
             // 
@@ -118,6 +119,7 @@
             Controls.Add(pushButton);
             Controls.Add(pullButton);
             Controls.Add(statusStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PS Omni Save Sync";

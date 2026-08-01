@@ -16,4 +16,8 @@ public class AppSettings
 
     // Name of the default synchronization profile.
     public string DefaultProfile { get; set; } = "";
+
+    // Directory on the device where memory card files are stored.
+    public string MemoryCardDirectory { get; set; } =
+    "/sdcard/Android/data/xyz.aethersx2.android/files/memcards";
 }

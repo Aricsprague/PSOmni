@@ -108,6 +108,13 @@ namespace PSOmni
             }
 
             MessageBox.Show("Tablet Connected");
+
+            List<string> cards =
+                await _adbService.ListFilesAsync(
+                    _settings.MemoryCardDirectory);
+
+            MessageBox.Show(
+                string.Join(Environment.NewLine, cards));
         }
 
         private async Task InitializeApplicationAsync()

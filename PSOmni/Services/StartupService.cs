@@ -23,7 +23,7 @@ public class StartupService : IStartupService
             return true;
 
         bool connected = await _adbService.ConnectAsync(
-            "192.168.40.227",
+            "192.168.40.180",
             5555);
 
         if (connected)
