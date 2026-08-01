@@ -4,13 +4,13 @@ using System.Text;
 
 namespace PSOmni.Interfaces
 {
-    /// <summary>Provides operations to synchronize memory card data between device and local storage.</summary>
+    // Provides operations to synchronize memory card data between device and local storage.
     public interface ISyncService
     {
-        /// <summary>Pulls the configured memory card from the device to local storage.</summary>
+        // Pulls the configured memory card from the device to local storage.
         Task PullMemoryCardAsync();
 
-        /// <summary>Pushes the configured memory card from local storage to the device.</summary>
+        // Pushes the configured memory card from local storage to the device.
         Task PushMemoryCardAsync();
     }
 }

@@ -5,10 +5,10 @@ using PSOmni.Domain;
 
 namespace PSOmni.Interfaces;
 
-/// <summary>Executes external commands and returns their results.</summary>
+// Executes external commands and returns their results.
 public interface ICommandRunner
 {
-    /// <summary>Runs a process asynchronously and returns the captured result.</summary>
+    // Runs a process asynchronously and returns the captured result.
     Task<CommandResult> RunAsync(
         string fileName,
         string arguments,

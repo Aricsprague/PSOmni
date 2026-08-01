@@ -4,18 +4,18 @@ using System.Text;
 
 namespace PSOmni.Domain;
 
-/// <summary>Result information produced by running an external command.</summary>
+// Result information produced by running an external command.
 public class CommandResult
 {
-    /// <summary>Process exit code returned by the executed command.</summary>
+    // Process exit code returned by the executed command.
     public int ExitCode { get; init; }
 
-    /// <summary>Captured standard output from the command.</summary>
+    // Captured standard output from the command.
     public string StandardOutput { get; init; } = "";
 
-    /// <summary>Captured standard error output from the command.</summary>
+    // Captured standard error output from the command.
     public string StandardError { get; init; } = "";
 
-    /// <summary>Indicates whether the command completed successfully (exit code 0).</summary>
+    // Indicates whether the command completed successfully (exit code 0).
     public bool Success => ExitCode == 0;
 }

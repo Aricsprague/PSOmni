@@ -5,15 +5,15 @@ using PSOmni.Domain;
 
 namespace PSOmni.Configuration;
 
-/// <summary>Application-level configuration values used by services and components.</summary>
+// Application-level configuration values used by services and components.
 public class AppSettings
 {
-    /// <summary>Path to the adb executable used to communicate with the device.</summary>
+    // Path to the adb executable used to communicate with the device.
     public string AdbPath { get; set; } = @"C:\Emulation\Sync\platform-tools\adb.exe";
 
-    /// <summary>Available synchronization profiles.</summary>
+    // Available synchronization profiles.
     public List<SyncProfile> Profiles { get; set; } = new();
 
-    /// <summary>Name of the default synchronization profile.</summary>
+    // Name of the default synchronization profile.
     public string DefaultProfile { get; set; } = "";
 }

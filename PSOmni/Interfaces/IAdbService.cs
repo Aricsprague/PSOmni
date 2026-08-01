@@ -4,24 +4,24 @@ using System.Text;
 
 namespace PSOmni.Interfaces;
 
-/// <summary>Defines operations for interacting with a device over adb.</summary>
+// Defines operations for interacting with a device over adb.
 public interface IAdbService
 {
-    /// <summary>Determines whether a device is currently connected and visible to adb.</summary>
+    // Determines whether a device is currently connected and visible to adb.
     Task<bool> IsDeviceConnectedAsync();
 
-    /// <summary>Attempts to connect to a device at the specified host and port. Returns true if a device becomes connected.</summary>
+    // Attempts to connect to a device at the specified host and port. Returns true if a device becomes connected.
     Task<bool> ConnectAsync(string host, int port);
 
-    /// <summary>Gets the connected device's friendly name.</summary>
+    // Gets the connected device's friendly name.
     Task<string> GetDeviceNameAsync();
 
-    /// <summary>Pulls a file from the device to the local filesystem.</summary>
+    // Pulls a file from the device to the local filesystem.
     Task PullFileAsync(string remotePath, string localPath);
 
-    /// <summary>Pushes a file from the local filesystem to the device.</summary>
+    // Pushes a file from the local filesystem to the device.
     Task PushFileAsync(string localPath, string remotePath);
 
-    /// <summary>Forces the specified package to stop on the connected device.</summary>
+    // Forces the specified package to stop on the connected device.
     Task ForceStopAsync(string packageName);
 }

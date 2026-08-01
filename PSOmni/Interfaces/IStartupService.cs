@@ -4,9 +4,9 @@ using System.Text;
 
 namespace PSOmni.Interfaces;
 
-/// <summary>Service responsible for application startup and initialization tasks.</summary>
+// Service responsible for application startup and initialization tasks.
 public interface IStartupService
 {
-    /// <summary>Performs startup initialization and returns true when initialization succeeds.</summary>
+    // Performs startup initialization and returns true when initialization succeeds.
     Task<bool> InitializeAsync();
 }

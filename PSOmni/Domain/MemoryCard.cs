@@ -4,19 +4,19 @@ using System.Text;
 
 namespace PSOmni.Domain;
 
-/// <summary>Represents a memory card configuration used for synchronization.</summary>
+// Represents a memory card configuration used for synchronization.
 public class MemoryCard
 {
-    /// <summary>Display name for the memory card.</summary>
+    // Display name for the memory card.
     public string Name { get; set; } = "";
 
-    /// <summary>File name (path) of the memory card on disk.</summary>
+    // File name (path) of the memory card on disk.
     public string FileName { get; set; } = "";
 
-    /// <summary>Indicates whether this memory card is the default selection.</summary>
+    // Indicates whether this memory card is the default selection.
     public bool IsDefault { get; set; }
 
-    /// <summary>Returns the display name for the memory card.</summary>
+    // Returns the display name for the memory card.
     public override string ToString()
     {
         return Name;

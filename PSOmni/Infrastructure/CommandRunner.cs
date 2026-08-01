@@ -7,7 +7,7 @@ using PSOmni.Interfaces;
 
 namespace PSOmni.Infrastructure;
 
-/// <summary>Executes external processes and captures their output.</summary>
+// Executes external processes and captures their output.
 public class CommandRunner : ICommandRunner
 {
     /// <summary>Runs a process asynchronously and returns the result including exit code and captured output.</summary>

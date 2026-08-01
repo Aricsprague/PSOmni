@@ -18,7 +18,7 @@ namespace PSOmni.Services
             _paths = paths;
         }
 
-        /// <summary>Pulls the memory card file from the remote device to the local path.</summary>
+        // Pulls the memory card file from the remote device to the local path.
         public async Task PullMemoryCardAsync()
         {
             await _adbService.PullFileAsync(
@@ -26,7 +26,7 @@ namespace PSOmni.Services
                 _paths.LocalMemoryCard);
         }
 
-        /// <summary>Pushes the local memory card file to the remote device.</summary>
+        // Pushes the local memory card file to the remote device.
         public async Task PushMemoryCardAsync()
         {
             await _adbService.PushFileAsync(
@@ -34,15 +34,14 @@ namespace PSOmni.Services
                 _paths.RemoteMemoryCard);
         }
     }
-    /// <summary>
-    /// Holds configured paths used by the synchronization service.
-    /// </summary>
+    
+    // Holds configured paths used by the synchronization service.
     public class SyncPaths
     {
-        /// <summary>Local filesystem path for the memory card file.</summary>
+        // Local filesystem path for the memory card file.
         public string LocalMemoryCard { get; set; } = "";
 
-        /// <summary>Remote device path for the memory card file.</summary>
+        // Remote device path for the memory card file.
         public string RemoteMemoryCard { get; set; } = "";
     }
 }

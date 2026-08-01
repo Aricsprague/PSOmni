@@ -62,13 +62,13 @@
             // 
             // pullButton
             // 
-            pullButton.Location = new Point(12, 108);
+            pullButton.Location = new Point(12, 78);
             pullButton.Name = "pullButton";
             pullButton.Size = new Size(260, 61);
             pullButton.TabIndex = 1;
-            pullButton.Text = "Pull From Device";
+            pullButton.Text = "Sync to PC";
             pullButton.UseVisualStyleBackColor = true;
-            pullButton.Click += this.PullButton_Click;
+            pullButton.Click += PullButton_Click;
             // 
             // pushButton
             // 
@@ -76,9 +76,9 @@
             pushButton.Name = "pushButton";
             pushButton.Size = new Size(260, 61);
             pushButton.TabIndex = 2;
-            pushButton.Text = "Push To Device";
+            pushButton.Text = "Sync to Device";
             pushButton.UseVisualStyleBackColor = true;
-            pushButton.Click += this.PushButton_Click;
+            pushButton.Click += PushButton_Click;
             // 
             // profileLabel
             // 

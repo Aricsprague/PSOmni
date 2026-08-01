@@ -4,22 +4,22 @@ using System.Text;
 
 namespace PSOmni.Domain;
 
-/// <summary>Configuration for a synchronization profile including connection and folder information.</summary>
+// Configuration for a synchronization profile including connection and folder information.
 public class SyncProfile
 {
-    /// <summary>Profile name shown to the user.</summary>
+    // Profile name shown to the user.
     public string Name { get; set; } = "";
 
-    /// <summary>Hostname or IP address of the remote device.</summary>
+    // Hostname or IP address of the remote device.
     public string Host { get; set; } = "";
-    /// <summary>Port used for the remote connection.</summary>
+    // Port used for the remote connection.
     public int Port { get; set; }
 
-    /// <summary>Local folder path used for synchronization.</summary>
+    // Local folder path used for synchronization.
     public string LocalFolder { get; set; } = "";
-    /// <summary>Remote folder path used for synchronization on the device.</summary>
+    // Remote folder path used for synchronization on the device.
     public string RemoteFolder { get; set; } = "";
 
-    /// <summary>Memory cards associated with this profile.</summary>
+    // Memory cards associated with this profile.
     public List<MemoryCard> MemoryCards { get; set; } = new();
 }

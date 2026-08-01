@@ -5,7 +5,7 @@ using PSOmni.Interfaces;
 
 namespace PSOmni.Services;
 
-/// <summary>Performs application startup checks and attempts to establish a device connection when needed.</summary>
+// Performs application startup checks and attempts to establish a device connection when needed.
 public class StartupService : IStartupService
 {
     private readonly IAdbService _adbService;
@@ -16,7 +16,7 @@ public class StartupService : IStartupService
     {
         _adbService = adbService;
     }
-    /// <summary>Initializes components required at application startup and ensures a device connection is available. Returns true when initialization succeeds and a device is connected.</summary>
+    // Initializes components required at application startup and ensures a device connection is available. Returns true when initialization succeeds and a device is connected.
     public async Task<bool> InitializeAsync()
     {
         if (await _adbService.IsDeviceConnectedAsync())

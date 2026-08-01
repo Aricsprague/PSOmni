@@ -8,7 +8,7 @@ using System.Text;
 
 namespace PSOmni.Infrastructure;
 
-/// <summary>Provides operations that use the adb command-line tool to communicate with an Android device.</summary>
+// Provides operations that use the adb command-line tool to communicate with an Android device.
 public class AdbService : IAdbService
 {
     private readonly ICommandRunner _commandRunner;
@@ -25,7 +25,7 @@ public class AdbService : IAdbService
         _settings = settings;
     }
 
-    /// <summary>Determines whether a device is currently connected and visible to adb.</summary>
+    // Determines whether a device is currently connected and visible to adb.
     public async Task<bool> IsDeviceConnectedAsync()
     {
         CommandResult result = await _commandRunner.RunAsync(
@@ -61,7 +61,7 @@ public class AdbService : IAdbService
         return await IsDeviceConnectedAsync();
     }
 
-    /// <summary>Gets the connected device's friendly name.</summary>
+    // Gets the connected device's friendly name.
     public Task<string> GetDeviceNameAsync()
     {
         throw new NotImplementedException();
