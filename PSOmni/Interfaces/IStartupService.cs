@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PSOmni.Interfaces;
+namespace PSOmniSync.Interfaces;
 
 // Service responsible for application startup and initialization tasks.
 public interface IStartupService

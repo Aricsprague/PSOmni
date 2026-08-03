@@ -1,13 +1,13 @@
-﻿using PSOmni.Configuration;
-using PSOmni.Domain;
-using PSOmni.Interfaces;
+﻿using PSOmniSync.Configuration;
+using PSOmniSync.Domain;
+using PSOmniSync.Interfaces;
 using System.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PSOmni.Infrastructure;
+namespace PSOmniSync.Infrastructure;
 
 // Provides operations that use the adb command-line tool to communicate with an Android device.
 public class AdbService : IAdbService

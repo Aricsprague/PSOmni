@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PSOmni.Domain;
+namespace PSOmniSync.Domain;
 
 // Result information produced by running an external command.
 public class CommandResult

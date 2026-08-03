@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using PSOmni.Domain;
+using PSOmniSync.Domain;
 
-namespace PSOmni.Configuration;
+namespace PSOmniSync.Configuration;
 
 // Application-level configuration values used by services and components.
 public class AppSettings

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using PSOmni.Interfaces;
+using PSOmniSync.Interfaces;
 
-namespace PSOmni.Services;
+namespace PSOmniSync.Services;
 
 // Performs application startup checks and attempts to establish a device connection when needed.
 public class StartupService : IStartupService

@@ -1,4 +1,4 @@
-﻿namespace PSOmni
+﻿namespace PSOmniSync
 {
     partial class MainForm
     {
@@ -145,7 +145,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "PS Omni Save Sync";
+            Text = "PSOmniSync";
             Load += MainForm_Load;
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();

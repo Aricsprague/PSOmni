@@ -1,9 +1,9 @@
-﻿using PSOmni.Domain;
+﻿using PSOmniSync.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PSOmni.Interfaces;
+namespace PSOmniSync.Interfaces;
 
 // Defines operations for interacting with a device over adb.
 public interface IAdbService

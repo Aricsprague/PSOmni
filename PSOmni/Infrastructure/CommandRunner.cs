@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using PSOmni.Domain;
-using PSOmni.Interfaces;
+using PSOmniSync.Domain;
+using PSOmniSync.Interfaces;
 
-namespace PSOmni.Infrastructure;
+namespace PSOmniSync.Infrastructure;
 
 // Executes external processes and captures their output.
 public class CommandRunner : ICommandRunner

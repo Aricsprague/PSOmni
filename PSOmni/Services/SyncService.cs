@@ -1,7 +1,7 @@
-﻿using PSOmni.Domain;
-using PSOmni.Interfaces;
+﻿using PSOmniSync.Domain;
+using PSOmniSync.Interfaces;
 
-namespace PSOmni.Services
+namespace PSOmniSync.Services
 {
     internal class SyncService : ISyncService
     {

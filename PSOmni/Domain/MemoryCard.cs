@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PSOmni.Domain;
+namespace PSOmniSync.Domain;
 
 /// <summary>
 /// Represents a PlayStation 2 memory card available for synchronization.

@@ -1,6 +1,6 @@
-﻿using PSOmni.Domain;
+﻿using PSOmniSync.Domain;
 
-namespace PSOmni.Interfaces
+namespace PSOmniSync.Interfaces
 {
     public interface ISyncService
     {

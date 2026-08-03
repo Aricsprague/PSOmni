@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PSOmni.Domain;
+namespace PSOmniSync.Domain;
 
 // Configuration for a synchronization profile including connection and folder information.
 public class SyncProfile

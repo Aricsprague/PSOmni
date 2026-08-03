@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using PSOmni.Domain;
+using PSOmniSync.Domain;
 
-namespace PSOmni.Interfaces;
+namespace PSOmniSync.Interfaces;
 
 // Executes external commands and returns their results.
 public interface ICommandRunner

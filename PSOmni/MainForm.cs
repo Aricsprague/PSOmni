@@ -1,9 +1,9 @@
-using PSOmni.Configuration;
-using PSOmni.Domain;
-using PSOmni.Infrastructure;
-using PSOmni.Services;
+using PSOmniSync.Configuration;
+using PSOmniSync.Domain;
+using PSOmniSync.Infrastructure;
+using PSOmniSync.Services;
 
-namespace PSOmni
+namespace PSOmniSync
 {
     /// <summary>Main application window responsible for user interactions and initiating synchronization operations.</summary>
     public partial class MainForm : Form
@@ -89,7 +89,7 @@ namespace PSOmni
                 DialogResult result = MessageBox.Show(
                     "Automatic connection failed.\n\n" +
                     "Verify Wireless Debugging is enabled and your tablet is connected to Wi-Fi.",
-                    "PS Omni",
+                    "PSOmniSync",
                     MessageBoxButtons.RetryCancel,
                     MessageBoxIcon.Warning);
 
