@@ -1,6 +1,7 @@
 ﻿using PSOmni.Configuration;
 using PSOmni.Domain;
 using PSOmni.Interfaces;
+using System.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -123,5 +124,45 @@ public class AdbService : IAdbService
             .ToList();
     }
 
+    public async Task<List<MemoryCard>> GetMemoryCardsAsync()
+    {
+        CommandResult result =
+            await _commandRunner.RunAsync(
+                _settings.AdbPath,
+                "shell ls \"/sdcard/Android/data/xyz.aethersx2.android/files/memcards\"");
+
+        if (!result.Success)
+            throw new Exception(result.StandardError);
+
+        List<MemoryCard> cards = new();
+
+        string[] lines =
+            result.StandardOutput.Split(
+                Environment.NewLine,
+                StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (string line in lines)
+        {
+            if (!line.EndsWith(".ps2"))
+                continue;
+
+            string fileName = line.Trim();
+
+            cards.Add(new MemoryCard
+            {
+                FileName = fileName,
+
+                RemotePath =
+                    $"/sdcard/Android/data/xyz.aethersx2.android/files/memcards/{fileName}",
+
+                LocalPath =
+                    Path.Combine(
+                           @"C:\Emulation\PCSX2\memcards",
+                            fileName)
+            });
+        }
+
+        return cards;
+    }
 
 }

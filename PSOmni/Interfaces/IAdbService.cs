@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PSOmni.Domain;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -27,4 +28,7 @@ public interface IAdbService
 
     //Lists files in a remote directory on the connected device. Returns a list of file names.
     Task<List<string>> ListFilesAsync(string remoteDirectory);
+
+    // Retrieves a list of memory cards available on the connected device.
+    Task<List<MemoryCard>> GetMemoryCardsAsync();
 }

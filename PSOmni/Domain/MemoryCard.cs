@@ -4,21 +4,28 @@ using System.Text;
 
 namespace PSOmni.Domain;
 
-// Represents a memory card configuration used for synchronization.
+/// <summary>
+/// Represents a PlayStation 2 memory card available for synchronization.
+/// </summary>
 public class MemoryCard
 {
-    // Display name for the memory card.
-    public string Name { get; set; } = "";
-
-    // File name (path) of the memory card on disk.
+    /// <summary>
+    /// File name of the memory card.
+    /// </summary>
     public string FileName { get; set; } = "";
 
-    // Indicates whether this memory card is the default selection.
-    public bool IsDefault { get; set; }
+    /// <summary>
+    /// Full path to the memory card on the Android device.
+    /// </summary>
+    public string RemotePath { get; set; } = "";
 
-    // Returns the display name for the memory card.
+    /// <summary>
+    /// Full path to the corresponding memory card on the local PC.
+    /// </summary>
+    public string LocalPath { get; set; } = "";
+
     public override string ToString()
     {
-        return Name;
+        return FileName;
     }
 }

@@ -13,6 +13,7 @@ namespace PSOmni
         private readonly AdbService _adbService;
         private readonly StartupService _startupService;
         private readonly SyncService _syncService;
+        private MemoryCard? _selectedMemoryCard;
 
         /// <summary>Initializes the main form and required services.</summary>
         public MainForm()
@@ -30,15 +31,7 @@ namespace PSOmni
             _startupService = new StartupService(
                 _adbService);
 
-            SyncPaths paths = new()
-            {
-                RemoteMemoryCard = "/sdcard/Android/data/xyz.aethersx2.android/files/memcards/Dark Cloud.ps2",
-                LocalMemoryCard = @"C:\Emulation\PCSX2\memcards\Dark Cloud.ps2"
-            };
-
-            _syncService = new SyncService(
-                _adbService,
-                paths);
+            _syncService = new SyncService(_adbService);
         }
 
         private void SetConnectionStatus(
@@ -109,12 +102,12 @@ namespace PSOmni
 
             MessageBox.Show("Tablet Connected");
 
-            List<string> cards =
-                await _adbService.ListFilesAsync(
-                    _settings.MemoryCardDirectory);
+            List<MemoryCard> cards =
+                await _adbService.GetMemoryCardsAsync();
 
-            MessageBox.Show(
-                string.Join(Environment.NewLine, cards));
+            memoryCardComboBox.DataSource = cards;
+            memoryCardComboBox.DisplayMember = "FileName";
+            memoryCardComboBox.SelectedIndex = 0;
         }
 
         private async Task InitializeApplicationAsync()
@@ -162,7 +155,14 @@ namespace PSOmni
                 ToggleUi(false);
                 SetStatus("Pulling memory card...");
 
-                await _syncService.PullMemoryCardAsync();
+                if (_selectedMemoryCard is null)
+                {
+                    MessageBox.Show("Please select a memory card.");
+                    return;
+                }
+
+                await _syncService.PullMemoryCardAsync(
+                    _selectedMemoryCard);
 
                 SetStatus("Pull complete.");
             }
@@ -183,7 +183,14 @@ namespace PSOmni
                 ToggleUi(false);
                 SetStatus("Pushing memory card...");
 
-                await _syncService.PushMemoryCardAsync();
+                if (_selectedMemoryCard is null)
+                {
+                    MessageBox.Show("Please select a memory card.");
+                    return;
+                }
+
+                await _syncService.PushMemoryCardAsync(
+                    _selectedMemoryCard);
 
                 SetStatus("Push complete.");
             }
@@ -196,6 +203,13 @@ namespace PSOmni
             {
                 ToggleUi(true);
             }
+        }
+        private void MemoryCardComboBox_SelectedIndexChanged(
+    object? sender,
+    EventArgs e)
+        {
+            _selectedMemoryCard =
+                memoryCardComboBox.SelectedItem as MemoryCard;
         }
     }
 }

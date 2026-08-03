@@ -37,6 +37,8 @@
             profileLabel = new Label();
             activeProfileLabel = new Label();
             statusIndicatorImage = new PictureBox();
+            memoryCardComboBox = new ComboBox();
+            memoryCardLabel = new Label();
             statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)statusIndicatorImage).BeginInit();
             SuspendLayout();
@@ -108,11 +110,32 @@
             statusIndicatorImage.TabIndex = 7;
             statusIndicatorImage.TabStop = false;
             // 
+            // memoryCardComboBox
+            // 
+            memoryCardComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            memoryCardComboBox.FormattingEnabled = true;
+            memoryCardComboBox.Location = new Point(151, 49);
+            memoryCardComboBox.Name = "memoryCardComboBox";
+            memoryCardComboBox.Size = new Size(121, 23);
+            memoryCardComboBox.TabIndex = 8;
+            memoryCardComboBox.SelectedIndexChanged += MemoryCardComboBox_SelectedIndexChanged;
+            // 
+            // memoryCardLabel
+            // 
+            memoryCardLabel.AutoSize = true;
+            memoryCardLabel.Location = new Point(151, 31);
+            memoryCardLabel.Name = "memoryCardLabel";
+            memoryCardLabel.Size = new Size(80, 15);
+            memoryCardLabel.TabIndex = 9;
+            memoryCardLabel.Text = "Memory Card";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(284, 261);
+            Controls.Add(memoryCardLabel);
+            Controls.Add(memoryCardComboBox);
             Controls.Add(statusIndicatorImage);
             Controls.Add(activeProfileLabel);
             Controls.Add(profileLabel);
@@ -141,5 +164,7 @@
         private Label activeProfileLabel;
         private ToolStripProgressBar statusProgressBar;
         private PictureBox statusIndicatorImage;
+        private ComboBox memoryCardComboBox;
+        private Label memoryCardLabel;
     }
 }
