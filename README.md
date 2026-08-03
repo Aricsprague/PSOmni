@@ -1,1 +1,1 @@
-# PSOmni
+# PSOmniSync
